@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 import random
+from django.shortcuts import render
+
 
 from django.template import loader
 
+
 def inicio(request):
-    return HttpResponse('Hola, soy la nueva pagina')
+    return render(request, "indice/index.html", {})
 
 def otra_vista(request):
     return HttpResponse('''
@@ -34,14 +37,18 @@ def mi_plantilla(request):
         'lista': lista
     }
     
-    template = loader.get_template("mi_plantilla.html")
-    plantilla_preparada = template.render(diccionario_de_datos)
-    
-    return HttpResponse(plantilla_preparada)
-
-    #VERSION VIEJA CON OPEN
+    #VERSION VIEJA CON open
     #plantilla = open(r"/Users/natalialin/Desktop/miproyecto/miproyecto/plantillas/mi_plantilla.html")
     #template = Template(plantilla.read())
     #plantilla.close()
     #context = Context(diccionario_de_datos)
     #plantilla_preparada = template.render(diccionario_de_datos)
+
+
+    #VERSION NUEVA CON loader
+    #template = loader.get_template("mi_plantilla.html")
+    #plantilla_preparada = template.render(diccionario_de_datos)
+    #return HttpResponse(plantilla_preparada)
+
+    #VERSION CON render
+    return render(request, "indice/mi_plantilla.html", diccionario_de_datos)

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'miproyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"/Users/natalialin/Desktop/Other/miproyecto/indice/plantillas"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
